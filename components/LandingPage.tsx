@@ -17,12 +17,10 @@ const LandingPage = () => {
     video.pause();
 
     let hasStartedPlaying = false;
-    const NAVBAR_FADE_THRESHOLD = 50; // Navbar starts fading at 50px
     const VIDEO_PLAY_THRESHOLD = 150; // Video starts playing at 150px (after navbar is fully faded)
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
-
       // Only start video after navbar has completely faded out
       if (!hasStartedPlaying && scrollY > VIDEO_PLAY_THRESHOLD) {
         hasStartedPlaying = true;
@@ -91,11 +89,10 @@ const LandingPage = () => {
         {/* Subtle overlay for better text contrast */}
         <div className="absolute inset-0 bg-black/10 hover:bg-transparent transition-colors duration-700"></div>
       </div>
-
       {/* Scroll Indicator - Centered Absolute */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-10 text-white drop-shadow-md pointer-events-none">
-        <div className="w-9 h-14 border-2 border-white/80 rounded-full flex justify-center p-1 mb-2 backdrop-blur-[2px]">
-          <div className="w-1 h-2 bg-white rounded-full animate-bounce mt-1"></div>
+        <div className="w-5 h-9 border-2 border-white/80 rounded-full flex justify-center p-1 mb-2 backdrop-blur-[2px]">
+          <div className="w-0.5 h-2 bg-white rounded-full animate-bounce mt-1"></div>
         </div>
         <span className="text-xs uppercase tracking-[0.2em] font-medium opacity-90 text-shadow-sm">
           Scroll

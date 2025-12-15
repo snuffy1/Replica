@@ -20,34 +20,32 @@ const Navbar: React.FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ease-in-out bg-white ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ease-in-out ${
           isScrolled
             ? "opacity-0 -translate-y-full pointer-events-none"
-            : "opacity-100 translate-y-0 bg-transparent py-6 md:py-10"
+            : "opacity-100 translate-y-0 bg-[#F7F7F7] py-6 md:py-10"
         }`}
       >
-        <div className="container mx-auto px-6 md:px-12 flex justify-center items-center relative">
-          {/* Logo Centered */}
-          <div className="flex flex-col items-center group cursor-pointer">
-            <Image
-              src="/logo/logo.png"
-              alt="Italian Kitchen Logo"
-              width={200}
-              height={56}
-              className="h-12 md:h-14 w-auto object-contain"
-            />
-          </div>
-
-          {/* Hamburger Menu - Right Aligned */}
-          <button
-            onClick={() => setIsMenuOpen(true)}
-            className="absolute right-6 md:right-12 p-3 hover:bg-gray-100 rounded-full transition-colors"
-            aria-label="Open Menu"
-          >
-            <Menu className="w-6 h-6 md:w-8 md:h-8 text-gray-800 stroke-[1.5]" />
-          </button>
+        {/* Logo Centered */}
+        <div className="flex flex-col items-center group cursor-pointer">
+          <Image
+            src="/logo/logo.png"
+            alt="Italian Kitchen Logo"
+            width={200}
+            height={56}
+            className="h-12 md:h-14 w-auto object-contain"
+          />
         </div>
       </header>
+
+      {/* Hamburger Menu - Fixed at Right Top Corner */}
+      <button
+        onClick={() => setIsMenuOpen(true)}
+        className="fixed top-6 md:top-10 right-6 md:right-12 z-60 p-3 hover:bg-gray-100 bg-[#FFFFFF] transition-colors cursor-pointer"
+        aria-label="Open Menu"
+      >
+        <Menu className="w-6 h-6 md:w-8 md:h-8 text-gray-800 stroke-[1.5] md:stroke-1" />
+      </button>
 
       {/* Full Screen Menu Overlay */}
       <div
