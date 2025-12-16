@@ -41,10 +41,12 @@ const Navbar: React.FC = () => {
       {/* Hamburger Menu - Fixed at Right Top Corner */}
       <button
         onClick={() => setIsMenuOpen(true)}
-        className="fixed top-6 md:top-10 right-6 md:right-12 z-60 p-3 hover:bg-gray-100 bg-[#FFFFFF] transition-colors cursor-pointer"
+        className="fixed top-6 md:top-10 right-6 md:right-12 z-60 p-3 bg-[#FFFFFF] transition-colors cursor-pointer overflow-hidden group"
         aria-label="Open Menu"
       >
-        <Menu className="w-6 h-6 md:w-8 md:h-8 text-gray-800 stroke-[1.5] md:stroke-1" />
+        {/* Background animation layer */}
+        <div className="absolute inset-0 bg-black transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
+        <Menu className="w-6 h-6 md:w-8 md:h-8 text-gray-800 group-hover:text-white stroke-[1.5] md:stroke-1 relative z-10 transition-colors duration-300" />
       </button>
 
       {/* Full Screen Menu Overlay */}
@@ -60,18 +62,16 @@ const Navbar: React.FC = () => {
           <X className="w-8 h-8 text-gray-800" />
         </button>
         <nav className="h-full flex flex-col items-center justify-center space-y-8">
-          {["Collections", "Projects", "Designers", "Showrooms", "Contact"].map(
-            (item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-4xl md:text-6xl font-serif text-gray-900 hover:text-brand-red transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </a>
-            )
-          )}
+          {["Replica"].map((item) => (
+            <a
+              key={item}
+              href="#"
+              className="text-4xl md:text-6xl font-serif text-gray-900 hover:text-brand-red transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
         </nav>
       </div>
     </>

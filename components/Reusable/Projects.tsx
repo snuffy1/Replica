@@ -8,37 +8,29 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const PROJECTS = [
-  {
-    title: "MARBRE / VERT",
-    img: "/projects/project1.jpg",
-    bigImg: "/projects/project1.jpg",
-  },
-  {
-    title: "INTÉRIEUR COMPLET",
-    img: "/projects/project2.jpg",
-    bigImg: "/projects/project2.jpg",
-  },
-  {
-    title: "WHITE & WOOD",
-    img: "/projects/project3.jpg",
-    bigImg: "/projects/project3.jpg",
-  },
-  {
-    title: "BLACK & WOOD",
-    img: "/projects/project4.jpg",
-    bigImg: "/projects/project4.jpg",
-  },
-];
+export type ProjectItem = {
+  title: string;
+  img: string;
+  bigImg: string;
+};
 
-export default function Projects() {
+type ProjectsProps = {
+  projects: ProjectItem[];
+  title?: string;
+  reverse?: boolean;
+};
+
+export default function Projects({
+  projects,
+  title = "PROJETS",
+  reverse = false,
+}: ProjectsProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const bigImgAnimRef = useRef<HTMLDivElement>(null);
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeImage = PROJECTS[activeIndex].bigImg;
+  const activeImage = projects[activeIndex]?.bigImg;
 
-  // Scroll animation
   useGSAP(() => {
     const ctx = gsap.context(() => {
       gsap.from(".project-item", {
@@ -57,7 +49,6 @@ export default function Projects() {
     return () => ctx.revert();
   }, []);
 
-  // Fade + zoom (clipped)
   useGSAP(() => {
     if (!bigImgAnimRef.current) return;
 
@@ -68,54 +59,69 @@ export default function Projects() {
     );
   }, [activeIndex]);
 
+  if (!projects?.length) return null;
+
+  // ✅ Reverse only on lg+ using order (mobile and tablet stay clean)
+  const bigOrder = reverse ? "order-1 lg:order-2" : "order-1 lg:order-1";
+  const gridOrder = reverse ? "order-2 lg:order-1" : "order-2 lg:order-2";
+
   return (
-    <section ref={sectionRef} className="px-8 py-20 bg-white max-w-5xl mx-auto">
+    <section
+      ref={sectionRef}
+      className="px-4 sm:px-8 py-16 sm:py-24 bg-white max-w-7xl mx-auto min-h-screen"
+    >
       {/* Heading */}
-      <div className="relative z-10 -mb-8">
-        <h2 className="text-6xl font-semibold tracking-wide">PROJETS</h2>
+      <div className="absolute z-10 mb-8 lg:mb-12">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-wide ">
+          {title}
+        </h2>
       </div>
 
-      <div className="grid grid-cols-12 gap-10">
-        {/* LEFT BIG IMAGE */}
-        <div className="col-span-7 project-item overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+        {/* BIG IMAGE */}
+        <div
+          className={`project-item overflow-hidden ${bigOrder} lg:col-span-7`}
+        >
           <div ref={bigImgAnimRef}>
             <Image
               src={activeImage}
               alt="Active Project"
               width={1200}
-              height={800}
+              height={700}
               className="w-full h-auto object-cover"
+              priority
             />
           </div>
         </div>
 
-        {/* RIGHT GRID */}
+        {/* SMALL GRID */}
         <div
-          className="col-span-5 grid grid-cols-2 gap-8"
+          className={`project-item ${gridOrder} lg:col-span-5 grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8`}
           onMouseLeave={() => setActiveIndex(0)}
         >
-          {PROJECTS.map((item, i) => (
+          {projects.map((item, i) => (
             <div
               key={i}
-              className="project-item cursor-pointer"
+              className="cursor-pointer"
               onMouseEnter={() => setActiveIndex(i)}
             >
-              <Image
-                src={item.img}
-                alt={item.title}
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
-              />
+              <div className="overflow-hidden">
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  width={600}
+                  height={600}
+                  className="w-full h-auto object-cover transition-transform duration-300 hover:scale-110"
+                />
+              </div>
 
-              {/* TITLE + RED LINE */}
               <p className="mt-3 text-xs tracking-widest relative inline-block">
                 {item.title}
                 <span
                   className={`absolute left-0 -bottom-1 h-px bg-red-500 transition-all duration-300
-                    ${
-                      i === activeIndex ? "w-full opacity-100" : "w-0 opacity-0"
-                    }`}
+                  ${
+                    i === activeIndex ? "w-full opacity-100" : "w-0 opacity-0"
+                  }`}
                 />
               </p>
             </div>
