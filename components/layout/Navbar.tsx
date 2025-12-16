@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       // Trigger fade out after 50px of scrolling
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 500);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -73,6 +73,26 @@ const Navbar: React.FC = () => {
             </a>
           ))}
         </nav>
+      </div>
+
+      {/* Floating Contact Button - Bottom Right */}
+      <div
+        className={`fixed bottom-0 right-6 md:bottom-0 md:right-8 z-50 transition-all duration-500 ease-in-out ${
+          isScrolled
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-4 scale-95 pointer-events-none"
+        }`}
+      >
+        <a
+          href="tel:0679963753"
+          className="group flex items-center bg-white hover:bg-red-800 text-black px-4 py-3 md:px-6 md:py-4  shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+          aria-label="Call us"
+        >
+          <Phone className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 group-hover:animate-bounce" />
+          <span className="text-sm md:text-base font-medium">
+            Tel: 06 79 96 37 53
+          </span>
+        </a>
       </div>
     </>
   );
