@@ -68,10 +68,10 @@ export default function Projects({
   return (
     <section
       ref={sectionRef}
-      className="px-4 sm:px-8 py-16 sm:py-24 bg-white max-w-7xl mx-auto min-h-screen"
+      className="px-4 sm:px-8 py-16 sm:py-24 bg-white max-w-7xl mx-auto min-h-screen relative"
     >
       {/* Heading */}
-      <div className="absolute z-10 mb-8 lg:mb-12">
+      <div className="absolute z-10 -mt-10">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-wide ">
           {title}
         </h2>
