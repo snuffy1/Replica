@@ -31,18 +31,16 @@ const Footer = () => {
                 "Contact",
               ].map((item) => (
                 <Link key={item} href="/" className="group block w-fit">
-                  {/* text */}
                   <span className="block">{item}</span>
-
-                  {/* underline */}
                   <div className="mt-2 w-0 h-px bg-red-400 group-hover:w-24 transition-all duration-500" />
                 </Link>
               ))}
             </nav>
           </div>
 
-          {/* RIGHT COLUMNS */}
+          {/* RIGHT SIDE (columns + email in empty space) */}
           <div className="md:col-span-8 mt-16 md:mt-0">
+            {/* Row 1: 3 columns */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-[15px] text-gray-900">
               {/* Column 1 */}
               <div className="sm:pl-10 sm:border-l sm:border-gray-300 space-y-4">
@@ -74,21 +72,21 @@ const Footer = () => {
                 ))}
               </div>
             </div>
+
+            {/* Row 2: Email sits in the empty space */}
+            <div className="mt-16 flex justify-center md:justify-start">
+              <Link
+                href="mailto:bonjour@itkitchenlyon.com"
+                className="text-red-600 text-3xl md:text-5xl font-light tracking-wide hover:opacity-80 transition"
+              >
+                bonjour@itkitchenlyon.com
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* Big Email */}
-        <div className="flex justify-center mt-24">
-          <Link
-            href="mailto:bonjour@itkitchenlyon.com"
-            className="text-red-600 text-3xl md:text-5xl font-light tracking-wide hover:opacity-80 transition"
-          >
-            bonjour@itkitchenlyon.com
-          </Link>
-        </div>
-
         {/* Bottom Links */}
-        <div className="mt-28 flex justify-center text-xs md:text-sm text-gray-600">
+        <div className="mt-20 flex justify-center text-xs md:text-sm text-gray-600">
           <div className="flex flex-wrap items-center gap-3">
             <Link href="#" className="hover:text-gray-900 transition">
               Legal notice
