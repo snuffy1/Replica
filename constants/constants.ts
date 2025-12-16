@@ -84,6 +84,26 @@ export const seriesData = [
     image: "/projects/secondproject4.jpg",
   },
 ];
+export const CAROUSEL_SLIDES = [
+  {
+    id: 1,
+    image: "/projects/project1.jpg",
+    title: "NOUVEAU SHOWROOM À MILAN",
+    subtitle: "Découvrez notre nouveau showroom à Milan, un espace dédié à l'élégance et au design italien.",
+  },
+  {
+    id: 2,
+    image: "/projects/project2.jpg",
+    title: "COLLABORATION AVEC DESIGNERS LOCAUX",
+    subtitle: "Nous sommes ravis d'annoncer notre collaboration avec des designers locaux pour créer des pièces uniques.",
+  },
+  {
+    id: 3,
+    image: "/projects/project3.jpg",
+    title: "LANCEMENT DE LA NOUVELLE COLLECTION 2024",
+    subtitle: "Explorez notre nouvelle collection 2024, alliant innovation et tradition artisanale.",
+  },
+];
 
 export { PROJECTS };
 export { PROJECTS2 };
