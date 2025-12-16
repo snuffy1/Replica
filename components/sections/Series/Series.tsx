@@ -86,10 +86,10 @@ const Series = () => {
           ref={gridRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
-          {seriesData.map((series, index) => (
+          {seriesData.map((series) => (
             <div key={series.id} className="group cursor-pointer">
               {/* Image Container */}
-              <div className="relative aspect-[3/4] overflow-hidden rounded-sm mb-6 bg-gray-200">
+              <div className="relative aspect-3/4 overflow-hidden rounded-sm mb-6 bg-gray-200">
                 <Image
                   src={series.image}
                   alt={series.title}

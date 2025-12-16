@@ -14,7 +14,7 @@ export default function BrandsGrid() {
         {/* GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* LEFT BIG IMAGE */}
-          <div className="lg:col-span-7 relative aspect-[4/3] overflow-hidden group">
+          <div className="lg:col-span-7 relative aspect-4/3 overflow-hidden group">
             <Image
               src="/brands/zecchinon-cuisines-italiennes.jpg"
               alt="Zecchinon"
