@@ -39,7 +39,7 @@ export default function AllOurAcheivments({
       onMouseLeave={onLeave}
       className="group flex items-end justify-end gap-10 max-w-7xl mx-auto "
     >
-      {/* Left: text + underline */}
+      {/* Left */}
       <span className="relative inline-block">
         <span className="block text-[28px] md:text-[34px] tracking-[0.18em] uppercase transition-colors duration-200 text-black group-hover:text-red-600">
           {label}

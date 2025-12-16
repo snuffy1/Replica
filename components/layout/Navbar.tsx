@@ -9,7 +9,6 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Trigger fade out after 50px of scrolling
       setIsScrolled(window.scrollY > 500);
     };
 
@@ -38,18 +37,16 @@ const Navbar: React.FC = () => {
         </div>
       </header>
 
-      {/* Hamburger Menu - Fixed at Right Top Corner */}
+      {/* fixed hamburger*/}
       <button
         onClick={() => setIsMenuOpen(true)}
         className="fixed top-6 md:top-10 right-6 md:right-12 z-60 p-3 bg-[#FFFFFF] transition-colors cursor-pointer overflow-hidden group"
         aria-label="Open Menu"
       >
-        {/* Background animation layer */}
         <div className="absolute inset-0 bg-black transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
         <Menu className="w-6 h-6 md:w-8 md:h-8 text-gray-800 group-hover:text-white stroke-[1.5] md:stroke-1 relative z-10 transition-colors duration-300" />
       </button>
 
-      {/* Full Screen Menu Overlay */}
       <div
         className={`fixed inset-0 bg-white z-60 transition-transform duration-500 ease-in-out ${
           isMenuOpen ? "translate-y-0" : "-translate-y-full"
@@ -75,7 +72,7 @@ const Navbar: React.FC = () => {
         </nav>
       </div>
 
-      {/* Floating Contact Button - Bottom Right */}
+      {/* Floating Contact Button  */}
       <div
         className={`fixed bottom-0 right-6 md:bottom-0 md:right-8 z-50 transition-all duration-500 ease-in-out ${
           isScrolled

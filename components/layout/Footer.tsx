@@ -20,7 +20,7 @@ const Footer = () => {
 
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12">
-          {/* LEFT MAIN NAV */}
+          {/* LEFT  */}
           <div className="md:col-span-4">
             <nav className="space-y-6 text-3xl md:text-4xl font-light text-gray-900">
               {[
@@ -38,11 +38,11 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* RIGHT SIDE (columns + email in empty space) */}
+          {/* RIGHT SIDE  */}
           <div className="md:col-span-8 mt-16 md:mt-0">
-            {/* Row 1: 3 columns */}
+            {/* Row 1: 3 cols */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-[15px] text-gray-900">
-              {/* Column 1 */}
+              {/* Col 1 */}
               <div className="sm:pl-10 sm:border-l sm:border-gray-300 space-y-4">
                 {["Our brands", "About us", "Showrooms"].map((item) => (
                   <Link key={item} href="#" className="group block w-fit">
@@ -52,7 +52,7 @@ const Footer = () => {
                 ))}
               </div>
 
-              {/* Column 2 */}
+              {/* col 2 */}
               <div className="sm:pl-10 sm:border-l sm:border-gray-300 space-y-4">
                 {["Your project", "Customization", "Layout"].map((item) => (
                   <Link key={item} href="#" className="group block w-fit">
@@ -62,7 +62,7 @@ const Footer = () => {
                 ))}
               </div>
 
-              {/* Column 3 */}
+              {/* Col 3 */}
               <div className="sm:pl-10 sm:border-l sm:border-gray-300 space-y-4">
                 {["Instagram", "Facebook", "Houzz"].map((item) => (
                   <Link key={item} href="#" className="group block w-fit">
@@ -73,7 +73,7 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Row 2: Email sits in the empty space */}
+            {/* Row 2: */}
             <div className="mt-16 flex justify-center md:justify-start">
               <Link
                 href="mailto:bonjour@itkitchenlyon.com"

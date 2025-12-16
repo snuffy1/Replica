@@ -19,7 +19,6 @@ const LandingPage = () => {
 
     const NAV_SELECTOR = "header";
 
-    // ✅ scale value that visually matches ~78vw / 72vh
     const END_SCALE = 0.78;
 
     gsap.set(frame, {
@@ -27,7 +26,7 @@ const LandingPage = () => {
       transformOrigin: "center center",
     });
 
-    // Responsive end value based on screen size
+    // Responsive speed for mob
     const isMobile = window.innerWidth < 768;
     const scrollEnd = isMobile ? "+=700" : "+=1200";
 
@@ -85,7 +84,7 @@ const LandingPage = () => {
       ref={sectionRef}
       className="relative w-full h-screen overflow-hidden bg-brand-dark"
     >
-      {/* CENTERED FRAME — NEVER MOVES */}
+      {/* CENTERED FRAME */}
       <div
         ref={frameRef}
         className="

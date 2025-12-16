@@ -173,7 +173,7 @@ const Description = () => {
   return (
     <section ref={sectionRef} className="py-16 px-4">
       <div className="max-w-4xl mx-auto text-center">
-        {/* Title Section */}
+        {/* Title  */}
         <div className="mb-12">
           <h1 className="text-2xl font-semibold text-gray-800 mb-4">
             Italian Kitchen
@@ -183,7 +183,7 @@ const Description = () => {
           </p>
         </div>
 
-        {/* Description Text */}
+        {/* Description */}
         <div className="mb-16">
           <p className="text-lg md:text-xl  text-gray-600 font-light max-w-2xl leading-loose mx-auto">
             Italian Kitchen c&apos;est avant tout la passion pour

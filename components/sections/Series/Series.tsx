@@ -75,7 +75,6 @@ const Series = () => {
   return (
     <section className="py-20 px-4 md:px-8 lg:px-16 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        {/* Title */}
         {/* Heading */}
         <div className="relative z-10 -mb-4">
           <h2 className="text-6xl font-semibold tracking-wide">Series</h2>
@@ -105,7 +104,6 @@ const Series = () => {
                   {series.title}
                 </h3>
 
-                {/* Underline */}
                 <div className="w-0 h-px bg-gray-400 group-hover:w-24 transition-all duration-500" />
               </div>
             </div>
