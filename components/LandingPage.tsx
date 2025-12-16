@@ -27,11 +27,15 @@ const LandingPage = () => {
       transformOrigin: "center center",
     });
 
+    // Responsive end value based on screen size
+    const isMobile = window.innerWidth < 768;
+    const scrollEnd = isMobile ? "+=700" : "+=1200";
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=1200",
+        end: scrollEnd,
         markers: false,
         scrub: 1, // smooth scrub
         pin: true, // pin main container
